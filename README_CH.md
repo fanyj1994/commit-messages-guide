@@ -1,16 +1,13 @@
-# Commit messages guide
+# commit 信息指南
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/RomuloOliveira)
 
-A guide to understanding the importance of commit messages and how to write them well.
 
 这是一份理解 commit 信息的重要性以及如何写好 commit 信息的指南。
 
-It may help you to learn what a commit is, why it is important to write good messages, best practices and some tips to plan and (re)write a good commit history.
 
 它会帮助你学习什么是 commit，为什么一个好的commit信息是重要的，以及计划（重）写一个 commit 记录的最好实践和技巧。
 
-## Available languages
 ## 其他语言版本
 
 - [English](README.md)
@@ -18,72 +15,50 @@ It may help you to learn what a commit is, why it is important to write good mes
 - [Deutsch](README_de-DE.md)
 - [中文简体](README_CH.md)
 
-## What is a "commit"?
 ## 什么是 commit
-
-In simple terms, a commit is a _snapshot_ of your local files, written in your local repository.
-Contrary to what some people think, [git doesn't store only the difference between the files, it stores a full version of all files](https://git-scm.com/book/eo/v1/Ekkomenci-Git-Basics#Snapshots,-Not-Differences).
-For files that didn't change from one commit to another, git stores just a link to the previous identical file that is already stored.
 
 简单来说，commit 是写在你本地仓库里的，对于本地文件的一个 _快照_。与一些人的想法相反，[git 不仅存储着文件之间的差异，它同样存储着所有文件的所有版本](https://git-scm.com/book/eo/v1/Ekkomenci-Git-Basics#Snapshots,-Not-Differences)。对于在一次提交中并未做任何修改的文件来说，git 只是存储了指向上一个版本相同文件的链接。
 
-The image below shows how git stores data over time, in which each "Version" is a commit:
 下面的图片展示了 git 如何随时间存储数据，每一个 "Version" 是一次 commit.
 
 ![](https://i.stack.imgur.com/AQ5TG.png)
 
-## Why are commit messages important?
 ## 为什么 commit 信息如此重要？
 
-- To speed up and streamline code reviews
 - 加快和精简代码审查
-- To help in the understanding of a change
 - 帮助理解文件变化
-- To explain "the whys" that cannot be described only with code
 - 解释并不能只用代码解释的缘由
-- To help future maintainers figure out why and how changes were made, making troubleshooting and debugging easier
 - 帮助未来的维护者理解为什么以及如何发生这些变化，使故障排除和调试更简单
 
-To maximize those outcomes, we can use some good practices and standards described in the next section.
 为了更好理解上述结果，我们在下面章节使用一些良好实践和标准的描述。
 
-## Good practices
 ## 良好实践
 
-These are some practices collected from my experiences, internet articles, and other guides. If you have others (or disagree with some) feel free to open a Pull Request and contribute.
 这里是从我个人经历，网上的文章以及其他一些指导中收集的实践。如果你有其他更好的（或者不认同的），请随时开一个 Pull Request 提供帮助。
 
-### Use imperative form
 ### 使用命令式语句
 
 ```
 # Good
 Use InventoryBackendPool to retrieve inventory backend
-使用 InventoryBackendPool 来检索库存后端
 ```
 
 ```
 # Bad
 Used InventoryBackendPool to retrieve inventory backend
-使用了 InventoryBackendPool 来检索库存后端
 ```
 
-_But why use the imperative form?_
 _为什么使用命令语句_
 
-A commit message describes what the referenced change actually **does**, its effects, not what was done.
 一个 commit 信息描述了所引用的改变时实际上**做的**，它的成效，而不是做过什么。
 
-[This excellent article from Chris Beams](https://chris.beams.io/posts/git-commit/) gives us a simple sentence that can be used to help us write better commit messages in imperative form:
 [这篇来自 Chris Beams 的好文章](https://chris.beams.io/posts/git-commit/)中提供了帮我写出更好的命令式提交信息的简单句式：
 
 ```
 If applied, this commit will <commit message>
-如果使用，本次提交将 <提交信息>
 ```
 
-Examples:
-（例如：）
+例如：
 
 ```
 # Good
@@ -95,7 +70,6 @@ If applied, this commit will use InventoryBackendPool to retrieve inventory back
 If applied, this commit will used InventoryBackendPool to retrieve inventory backend
 ```
 
-### Capitalize the first letter
 ### 第一个字母大写
 
 ```
@@ -108,14 +82,10 @@ Add `use` method to Credit model
 add `use` method to Credit model
 ```
 
-The reason that the first letter should be capitalized is to follow the grammar rule of using capital letters at the beginning of sentences.
 第一个字母使用大写形式的原因是跟随大写字母开始一个句子的语法规则。
 
-The use of this practice may vary from person to person, team to team, or even from language to language.
-Capitalized or not, an important point is to stick to a single standard and follow it.
 这个实践的使用可能因为人和人，团队以及团队，甚至语言和语言之间的差异而不同（译者：很明显中文没有大写之说），大写与否，坚持一个标准并同意使用是最重要的。
 
-### Try to communicate what the change does without having to look at the source code
 ### 尝试在不用看源码的情况下传达变更做了什么
 
 
@@ -139,10 +109,8 @@ Increase left padding between textbox and layout frame
 Adjust css
 ```
 
-It is useful in many scenarios (e.g. multiple commits, several changes and refactors) to help reviewers understand what the committer was thinking.
 这在很多场景很有用（例如，好几次 commit，多个改变和重构），可以帮助审查者理解提交者所思考的。
 
-### Use the message body to explain "why", "for what", "how" and additional details
 ### 在信息主体解释“为什么”，“针对什么”，“如何”以及附加细节
 
 ```
@@ -175,14 +143,11 @@ Change from namedtuple to class because we need to
 setup a new attribute (in_use_amount) with a new value
 ```
 
-The subject and the body of the messages are separated by a blank line.
-Additional blank lines are considered as a part of the message body.
 提交信息的主题和正文使用空行分隔。其他的空行会被视为信息正文的一部分。
 
 Characters like `-`, `*` and \` are elements that improve readability.
 像 `-`,`*`和`\`等字符是提高可读性的元素。
 
-### Avoid generic messages or messages without any context
 ### 避免使用通用信息或者没有上下文的信息
 
 ```
@@ -198,19 +163,14 @@ Change stuff
 Adjust css
 ```
 
-### Limit the number of columns
 ### 限制每行字符数
 
-[It's recommended](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines) to use a maximum of 50 characters for the subject and 72 for the body.
 标题最大50个字符，正文72个字符是[推荐的标准](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines)。
 
-### Keep language consistency
 ### 保持语言一致性
 
-For project owners: Choose a language and write all commit messages using that language. Ideally, it should match the code comments, default translation locale (for localized projects), etc.
 对于项目所有者：选择一门语言并使用它写所有的commit信息。理想情况下，它应该和代码注释以及默认翻译区域（对于本地项目）等等一致。
 
-For contributors: Write your commit messages using the same language as the existing commit history.
 对于贡献者来说：使用和提交历史相同的语言写下你的提交信息。
 
 ```
@@ -234,10 +194,9 @@ efefef Add `use` method to Credit model
 cdcdcd Agora vai
 ```
 
-### Template
+### 模板
 
-This is a template, [written originally by Tim Pope](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html), which appears in the [_Pro Git Book_](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project).
-这里是一个模板，最初出现在由 [Tim Pope](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) 在 [_Pro Git Book](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)一书中编写。 
+这里是一个编写模板，最初出现在由 [Tim Pope](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) 在 [_Pro Git Book](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)一书中编写。 
 
 ```
 Summarize changes in around 50 characters or less
